@@ -1,0 +1,21 @@
+{
+  "shadow": {
+    "dark": { "value": "#616970" },
+    "light": { "value": "rgba(255, 255, 255, 0.25)" },
+    "base": {
+      "value": 0.25
+    },
+    "hover": {
+      "value": 0.25
+    },
+    "active": {
+      "value": 0.25
+    },
+    "focus": {
+      "value": 0.25
+    },
+    "disabled": {
+      "value": 0
+    }
+  }
+}

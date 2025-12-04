@@ -1,0 +1,23 @@
+{
+  "base": {
+    "component": {
+      "transform": {
+        "base": {
+          "value": -0.25
+        },
+        "hover": {
+          "value": -0.45
+        },
+        "active": {
+          "value": -0.15
+        },
+        "focus": {
+          "value": -0.25
+        },
+        "disabled": {
+          "value": "0"
+        }
+      }
+    }
+  }
+}

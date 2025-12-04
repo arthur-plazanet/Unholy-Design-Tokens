@@ -5,7 +5,8 @@
   "main": "build.js",
   "type": "module",
   "scripts": {
-    "build": "style-dictionary build",
+    "build": "style-dictionary build --config src/config.js",
+    "build:verbose": "style-dictionary build --config src/config.js  --verbose",
     "clean": "rm -rf build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

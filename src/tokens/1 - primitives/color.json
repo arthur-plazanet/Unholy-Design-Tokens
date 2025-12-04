@@ -207,58 +207,6 @@
         "attributes": { "font": "base" },
         "type": "color"
       }
-    },
-    "theme": {
-      "100": {
-        "value": "oklch(from sRGB var(--color-theme, var(--color-arylide-yellow-500)) calc(0.95) 0 90)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "200": {
-        "value": "oklch(from sRGB var(--color-theme, var(--color-arylide-yellow-500)) calc(0.90) 0 90)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "300": {
-        "value": "oklch(from sRGB var(--color-theme, var(--color-arylide-yellow-500)) calc(0.85) 0 90)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "400": {
-        "value": "oklch(from sRGB var(--color-theme, {primitives.colors.) calc(0.80) 0 90)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "500": {
-        "value": "var(--color-theme, var(--color-arylide-yellow-500))",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "DEFAULT": {
-        "value": "var(--color-theme, var(--color-arylide-yellow-500))",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "600": {
-        "value": "color-mix(in srgb, var(--color-theme, var(--color-arylide-yellow-500)), white 60%)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "700": {
-        "value": "color-mix(in srgb, var(--color-theme, var(--color-arylide-yellow-500)), white 70%)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "800": {
-        "value": "color-mix(in srgb, var(--color-theme, var(--color-arylide-yellow-500)), white 80%)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      },
-      "900": {
-        "value": "color-mix(in srgb, var(--color-theme, var(--color-arylide-yellow-500)), white 90%)",
-        "attributes": { "font": "base" },
-        "type": "color"
-      }
     }
   }
 }

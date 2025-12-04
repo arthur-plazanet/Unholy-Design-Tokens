@@ -1,0 +1,91 @@
+/**
+ * Internal default theme variables
+ * Using CSS pseudo-private custom properties 
+ * https://lea.verou.me/blog/2021/10/custom-properties-with-defaults/
+ */
+:root {
+  /* -------------------------------------------------- */
+  /* Border */
+  /* -------------------------------------------------- */
+  --_border-width-default: var(--border-width-default, 2px);
+  --_border-style-default: var(--border-style-default, solid);
+  --_border-radius-default: var(--border-radius-default, 0);
+
+  /* -------------------------------------------------- */
+  /* Color */
+  /* -------------------------------------------------- */
+  --_color-shadow-dark: var(--color-shadow-dark, #616970);
+  --_color-shadow-light: var(--color-shadow-light, rgba(255, 255, 255, 0.25));
+
+  /* -------------------------------------------------- */
+  /* Breakpoints */
+  /* -------------------------------------------------- */
+  --_breakpoints-mobile: var(--breakpoints-mobile, 640px);
+  --_breakpoints-tablet: var(--breakpoints-tablet, 768px);
+  --_breakpoints-desktop: var(--breakpoints-desktop, 1024px);
+  --_breakpoints-desktop-xl: var(--breakpoints-desktop-xl, 1280px);
+  --_breakpoints-desktop-xxl: var(--breakpoints-desktop-xxl, 1820px);
+
+  /* -------------------------------------------------- */
+  /* Layout */
+  /* -------------------------------------------------- */
+  --_layout-zIndex: var(--layout-zIndex, 1000);
+  --_layout-depth-base: var(--layout-depth-base, 6px);
+
+  /* Collection name: primitives */
+  /* Mode: Dark */
+  :root {
+    --_shadow-transform-multiplier: var(--shadow-transform-multiplier, 0.25);
+  }
+
+  /* Collection name: primitives */
+  /* Mode: Dark */
+  --_block-shadow-base: var(--block-shadow-base, 0.25);
+  --_block-shadow-hover: var(--block-shadow-hover, 0.25);
+  --_block-shadow-active: var(--block-shadow-active, 0.25);
+  --_block-shadow-focus: var(--block-shadow-focus, 0.25);
+  --_block-shadow-disabled: var(--block-shadow-disabled, 0);
+  --_block-transform-base: var(--block-transform-base, -0.25);
+  --_block-transform-hover: var(--block-transform-hover, -0.45);
+  --_block-transform-active: var(--block-transform-active, -0.15);
+  --_block-transform-focus: var(--block-transform-focus, -0.25);
+  --_block-transform-disabled: var(--block-transform-disabled, 0);
+  /* -------------------------------------------------- */
+  /* Space */
+  /* -------------------------------------------------- */
+  --_space-unit: var(--space-unit, 1rem);
+  --_space-xxs: var(--space-xxs, calc(0.25 * var(--space-unit)));
+  --_space-xs: var(--space-xs, calc(0.5 * var(--space-unit)));
+  --_space-sm: var(--space-sm, calc(0.75 * var(--space-unit)));
+  --_space-md: var(--space-md, calc(1 * var(--space-unit)));
+  --_space-lg: var(--space-lg, calc(1.5 * var(--space-unit)));
+  --_space-xl: var(--space-xl, calc(2 * var(--space-unit)));
+  --_space-xxl: var(--space-xxl, calc(4 * var(--space-unit)));
+
+  /* -------------------------------------------------- */
+  /* Font */
+  /* -------------------------------------------------- */
+  --_font-regular: var(--font-regular, url('/fonts/GOTHAM-BOOK.OTF'));
+  --_font-bold: var(--font-bold, url('/fonts/GOTHAM-BOLD.OTF'));
+  --_font-bolder: var(--font-bolder, url('/fonts/GOTHAM-BLACK.OTF'));
+  --_font-bolder-italic: var(
+    --font-bolder-italic,
+    url('/fonts/GOTHAM-BLACKITALIC.OTF')
+  );
+
+  /* -------------------------------------------------- */
+  /* Text */
+  /* -------------------------------------------------- */
+  --_text-xs: var(--text-xs, clamp(0.4444rem, 0.6881rem - 0.2407vw, 0.64rem));
+  --_text-sm: var(--text-sm, clamp(0.6667rem, 0.8328rem - 0.1641vw, 0.8rem));
+  --_text-md: var(--text-md, clamp(1rem, 1rem + 0vw, 1rem));
+  --_text-lg: var(--text-lg, clamp(1.25rem, 1.1885rem + 0.3077vw, 1.5rem));
+  --_text-xl: var(--text-xl, clamp(1.5625rem, 1.3933rem + 0.8462vw, 2.25rem));
+  --_text-xxl: var(--text-xxl, clamp(1.9531rem, 1.6031rem + 1.75vw, 3.375rem));
+  --_text-h1: var(--text-h1, clamp(2.4414rem, 1.7962rem + 3.226vi, 5.0625rem));
+
+  /* -------------------------------------------------- */
+  /* Heading */
+  /* -------------------------------------------------- */
+  --_heading-height: var(--heading-height, calc(1rem * 2.5));
+}

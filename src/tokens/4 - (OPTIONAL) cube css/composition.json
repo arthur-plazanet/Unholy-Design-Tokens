@@ -1,0 +1,21 @@
+{
+  "cube": {
+    "composition": {
+      "flow": {
+        "flow-space": { "value": "{spacing.md}" }
+      },
+      "stack": {
+        "gap": { "value": "{spacing.md}" },
+        "align": { "value": "start" }
+      },
+      "cluster": {
+        "gap": { "value": "{spacing.sm}" },
+        "align": { "value": "center" }
+      },
+      "center": {
+        "maxWidth": { "value": "72ch" },
+        "paddingInline": { "value": "{spacing.md}" }
+      }
+    }
+  }
+}

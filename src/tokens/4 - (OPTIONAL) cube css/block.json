@@ -1,0 +1,20 @@
+{
+  "cube": {
+    "block": {
+      "card": {
+        "background": { "value": "{color.surface}" },
+        "borderColor": { "value": "{color.border-subtle}" },
+        "radius": { "value": "{border.radius.md}" },
+        "padding": { "value": "{spacing.md}" }
+      },
+      "button": {
+        "paddingX": { "value": "{spacing.sm}" },
+        "paddingY": { "value": "{spacing.xs}" },
+        "radius": { "value": "{border.radius}" },
+        "color": { "value": "{intent.primary.text}" },
+        "background": { "value": "{bg.primary}" },
+        "hoverBackground": { "value": "{bg.primary.hover}" }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "color": {
+    "primary": {
+      "value": "#e3c567",
+      "type": "color"
+    },
+    "secondary": {
+      "value": "blue",
+      "type": "color"
+    },
+    "danger": {
+      "value": "#E3514A",
+      "type": "color"
+    }
+  }
+}
