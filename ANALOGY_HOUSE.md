@@ -28,12 +28,9 @@ While having them is technically enough to start building your house, but it's n
 - The house can be inconsistent
 - If someone else joins the project later, you will need to explain EVERYTHING from scratch.
 
-- Every new decision requires you to remake the formula from scratch. For example:
-  - If you want to build a wall, you will first need to calculate how many bricks, how much cement etc. you need
-  - The second time you want to build a wall, you have to do the same calculations again, even if it's the same wall as before
--
 - If at some point you want to expand your house and involve other people, every new builder has to relearn everything
 
+---
 ### 🧱 Step 2 — You create building parts to go faster
 
 Instead of redefining everything every time, you create reusable parts:
