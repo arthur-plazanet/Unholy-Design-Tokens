@@ -1,0 +1,17 @@
+@layer cube {
+  @layer components {
+    :root {  
+    --background: [object Object];
+    --cube-block-card-border-color: #9aa2a2;
+    --cube-block-card-radius: [object Object];
+    --cube-block-card-padding: calc(1 * var(--space-unit));
+    --cube-block-button-padding-x: calc(0.75 * var(--space-unit));
+    --cube-block-button-padding-y: calc(0.5 * var(--space-unit));
+    --cube-block-button-radius: [object Object];
+    --cube-block-button-color: #020303;
+    --cube-block-button-background: #e3c567;
+    --cube-block-button-hover-background: #d9af30;
+  }
+}
+
+  }

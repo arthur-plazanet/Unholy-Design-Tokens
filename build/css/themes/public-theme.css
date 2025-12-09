@@ -7,78 +7,41 @@
 /* -------------------------------------------------- */
 /* Border */
 /* -------------------------------------------------- */
-  --border-width-default: 2px;
-  --border-style-default: solid;
-  --border-radius-default: 0;
+  --border--width-default: 2px;
+  --border--style-default: solid;
+  --border--radius-default: 0;
 
 /* -------------------------------------------------- */
-/* Color */
+/* Breakpoint */
 /* -------------------------------------------------- */
-  --color-shadow-dark: #616970;
-  --color-shadow-light: rgba(255, 255, 255, 0.25);
+  --breakpoint--mobile: 640px;
+  --breakpoint--tablet: 768px;
+  --breakpoint--desktop: 1024px;
+  --breakpoint--desktop-xl: 1280px;
+  --breakpoint--desktop-xxl: 1820px;
 
 /* -------------------------------------------------- */
-/* Breakpoints */
+/* Shadow */
 /* -------------------------------------------------- */
-  --breakpoints-mobile: 640px;
-  --breakpoints-tablet: 768px;
-  --breakpoints-desktop: 1024px;
-  --breakpoints-desktop-xl: 1280px;
-  --breakpoints-desktop-xxl: 1820px;
+  --shadow--default: 0.25;
+  --shadow--hover: 0.25;
+  --shadow--active: 0.25;
+  --shadow--focus: 0.25;
+  --shadow--disabled: 0;
 
 /* -------------------------------------------------- */
-/* Layout */
+/* Spacing */
 /* -------------------------------------------------- */
-  --layout-zIndex: 1000;
-  --layout-depth-base: 6px;
-
-/* -------------------------------------------------- */
-/* Component */
-/* -------------------------------------------------- */
-  --component-shadow-base: 0.25;
-  --component-shadow-hover: 0.25;
-  --component-shadow-active: 0.25;
-  --component-shadow-focus: 0.25;
-  --component-shadow-disabled: 0;
-  --component-transform-base: -0.25;
-  --component-transform-hover: -0.45;
-  --component-transform-active: -0.15;
-  --component-transform-focus: -0.25;
-  --component-transform-disabled: 0;
-
-/* -------------------------------------------------- */
-/* Space */
-/* -------------------------------------------------- */
-  --space-unit: 1rem;
-  --space-xxs: calc(0.25 * var(--space-unit));
-  --space-xs: calc(0.5 * var(--space-unit));
-  --space-sm: calc(0.75 * var(--space-unit));
-  --space-md: calc(1 * var(--space-unit));
-  --space-lg: calc(1.5 * var(--space-unit));
-  --space-xl: calc(2 * var(--space-unit));
-  --space-xxl: calc(4 * var(--space-unit));
-
-/* -------------------------------------------------- */
-/* Font */
-/* -------------------------------------------------- */
-  --font-regular: url('/fonts/GOTHAM-BOOK.OTF');
-  --font-bold: url('/fonts/GOTHAM-BOLD.OTF');
-  --font-bolder: url('/fonts/GOTHAM-BLACK.OTF');
-  --font-bolder-italic: url('/fonts/GOTHAM-BLACKITALIC.OTF');
-
-/* -------------------------------------------------- */
-/* Text */
-/* -------------------------------------------------- */
-  --text-xs: clamp(0.4444rem, 0.6881rem - 0.2407vw, 0.64rem);
-  --text-sm: clamp(0.6667rem, 0.8328rem - 0.1641vw, 0.8rem);
-  --text-md: clamp(1rem, 1rem + 0vw, 1rem);
-  --text-lg: clamp(1.25rem, 1.1885rem + 0.3077vw, 1.5rem);
-  --text-xl: clamp(1.5625rem, 1.3933rem + 0.8462vw, 2.25rem);
-  --text-xxl: clamp(1.9531rem, 1.6031rem + 1.75vw, 3.375rem);
-  --text-h1: clamp(2.4414rem, 1.7962rem + 3.226vi, 5.0625rem);
-
-/* -------------------------------------------------- */
-/* Heading */
-/* -------------------------------------------------- */
-  --heading-height: calc(1rem * 2.5);
+  --spacing--unit: 1rem;
+  --spacing--min: 1.125rem;
+  --spacing--max: 3rem;
+  --spacing--min-viewport: 360px;
+  --spacing--max-viewport: 1280px;
+  --spacing--xxs: calc(0.25 * var(--space-unit));
+  --spacing--xs: calc(0.5 * var(--space-unit));
+  --spacing--sm: calc(0.75 * var(--space-unit));
+  --spacing--md: calc(1 * var(--space-unit));
+  --spacing--lg: calc(1.5 * var(--space-unit));
+  --spacing--xl: calc(2 * var(--space-unit));
+  --spacing--xxl: calc(4 * var(--space-unit));
 }

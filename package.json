@@ -13,6 +13,9 @@
   "author": "",
   "license": "Apache-2.0",
   "devDependencies": {
-    "style-dictionary": "^4.0.0-prerelease.30"
+    "@types/tinycolor2": "1.4.6",
+    "tinycolor2": "1.6.0",
+    "style-dictionary": "^4.0.0-prerelease.30",
+    "typescript": "5.9.3"
   }
 }

@@ -1,8 +1,8 @@
-## Analogy - 🏠 Building a House, and how the abstraction works
+# Analogy - 🏠 Building a House, and how the abstraction works
 
 Imagine that you want to build a house yourself, starting from the foundation up to the roof.
 
-### Step 1 — You make a decision on which materials to use
+## Step 1 — You make a decision on which materials to use
 
 You probably don't want to build your new house with not recognized materials.
 You start by knowing and choosing the _**raw materials**_ you will use, which can be:
@@ -19,6 +19,7 @@ These are the basic ingredients of your house.
 While having them is technically enough to start building your house, but it's not very practical:
 
 - Every time you will need a wall, you will have to recalculate:
+
   - how many bricks
   - how much cement
   - what thickness
@@ -30,24 +31,13 @@ While having them is technically enough to start building your house, but it's n
 
 - If at some point you want to expand your house and involve other people, every new builder has to relearn everything
 
----
-### 🧱 Step 2 — You create building parts to go faster
+## 🧱 Step 2 — You create building parts to go faster
 
 Instead of redefining everything every time, you create reusable parts:
 
 - 🟫 Some standard walls
-  - Carry specific loads
-  - With specific insulation
-  - Specific thickness
 - 🚪 Standard doors
-  - With specific dimensions
-  - With specific materials
-  - With specific hardware
-
 - 🪟 Standard windows
-  - With specific dimensions
-  - With specific materials
-  - With specific hardware
 
 They allow you to be faster, and you don't have to worry about the raw materials anymore.
 
@@ -65,7 +55,7 @@ These parts are reusable, consistent, and easier to understand.
 > Now any builder don't need to know which materials a wall might use.
 > They just use "this wall"
 
-### 🚪 Step 3 — You want to create rooms with purpose
+## 🚪 Step 3 — You want to create rooms with purpose
 
 Now that you have standard parts, you want to create rooms with specific purposes:
 
@@ -87,7 +77,7 @@ you think about
 > [!NOTE]
 > Same
 
-### 🛋️ Step 4 — People live inside (Components)
+## 🛋️ Step 4 — People live inside (Components)
 
 Furniture, people, behavior — all of this sits on top of rooms.
 
@@ -102,7 +92,7 @@ No one sleeping in the bedroom wonders:
 They only care that it's a bedroom, and it serves its purpose.
 They can then add furniture, decorate it, and use it as intended, according to the room's purpose.
 
-### What if you want to change something?
+## What if you want to change something?
 
 When a house is finished, and you want to apport changes, you usually not:
 
@@ -137,7 +127,7 @@ while everything else stays stable.
 - **Parts with purpose**: Is
 - **Abstraction layers**: Each step represents a layer of abstraction, from raw materials to functional spaces. This mirrors how design tokens abstract raw values into meaningful components.
 
-### 🪜 The abstraction protects the user
+## 🪜 The abstraction protects the user
 
 Just like:
 

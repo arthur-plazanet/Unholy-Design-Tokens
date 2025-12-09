@@ -2,10 +2,11 @@
 
 # Intent Tokens
 
-Intent tokens translate UI states like "success" or "danger" into consistent
-visual treatments using semantic tokens.
+Intent tokens translate UI states like "success" or "danger" (designer language) into consistent visual.
 
 This is the **developer-facing API** for stateful components.
+
+3 attributes:
 
 ## When to use intent tokens
 
