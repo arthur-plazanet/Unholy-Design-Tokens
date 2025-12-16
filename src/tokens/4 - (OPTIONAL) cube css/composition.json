@@ -2,19 +2,19 @@
   "cube": {
     "composition": {
       "flow": {
-        "flow-space": { "value": "{space.md}" }
+        "space": { "value": "var(--space-md)" }
       },
       "stack": {
-        "gap": { "value": "{space.md}" },
+        "gap": { "value": "var(--space-md)" },
         "align": { "value": "start" }
       },
       "cluster": {
-        "gap": { "value": "{space.sm}" },
+        "gap": { "value": "var(--space-sm)" },
         "align": { "value": "center" }
       },
       "center": {
         "maxWidth": { "value": "72ch" },
-        "paddingInline": { "value": "{space.md}" }
+        "paddingInline": { "value": "var(--space-md)" }
       }
     }
   }

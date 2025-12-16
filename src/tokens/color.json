@@ -15,12 +15,7 @@
         "hue": { "value": "0deg" },
         "lightness": { "value": "0%" },
         "opacity": { "value": 1 }
-      },
-      "attribute": {
-        "type": "lolol"
       }
-
-
     },
     "secondary": {
       "bg": {

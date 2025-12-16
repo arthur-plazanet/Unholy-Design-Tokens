@@ -119,7 +119,6 @@ declare const tokens: {
         lightness: DesignToken;
         opacity: DesignToken;
       };
-      attribute: {};
     };
     secondary: {
       "100": DesignToken;
@@ -354,7 +353,7 @@ declare const tokens: {
     };
     composition: {
       flow: {
-        "flow-space": DesignToken;
+        space: DesignToken;
       };
       stack: {
         gap: DesignToken;

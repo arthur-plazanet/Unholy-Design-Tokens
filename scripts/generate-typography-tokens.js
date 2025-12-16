@@ -10,6 +10,7 @@ import { generateUtopiaScale } from '../src/utils/utopia.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+console.log('📟 - __dirname → ', __dirname);
 
 const INPUT_FILE = path.join(
   __dirname,
@@ -47,7 +48,7 @@ const config = {
   maxViewport: configToken.maxViewport?.value ?? 1280,
   scaleMin: configToken.scaleMin?.value ?? 1.2,
   scaleMax: configToken.scaleMax?.value ?? 1.25,
-  steps: configToken.steps?.value ?? [-2, -1, 0, 1, 2, 3, 4],
+  steps: configToken.steps?.value ?? [0, 1, 2, 3, 4, 5, 6],
 };
 
 // -----------------------------------
@@ -134,6 +135,6 @@ function writeJSON(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2));
 }
 
-writeJSON(PRIMITIVES_OUT, primitives);
+// writeJSON(PRIMITIVES_OUT, primitives);
 // writeJSON(SEMANTIC_OUT, semantic);
 // writeJSON(COMPONENT_OUT, component);

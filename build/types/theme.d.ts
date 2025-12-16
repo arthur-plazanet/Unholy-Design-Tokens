@@ -243,7 +243,7 @@ export interface YThemeToken {
   CubeBlockButtonColor: string;
   CubeBlockButtonBg: string;
   CubeBlockButtonHoverBackground: string;
-  CubeCompositionFlowFlowSpace: string;
+  CubeCompositionFlowSpace: string;
   CubeCompositionStackGap: string;
   CubeCompositionStackAlign: string;
   CubeCompositionClusterGap: string;

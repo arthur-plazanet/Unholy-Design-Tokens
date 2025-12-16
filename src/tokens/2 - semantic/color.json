@@ -3,28 +3,97 @@
     "primary": {
       "100": {
         "value": "{color.arylide-yellow.100}",
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
-      "200": { "value": "{color.arylide-yellow.200}", "type": "color" },
-      "300": { "value": "{color.arylide-yellow.300}", "type": "color" },
-      "400": { "value": "{color.arylide-yellow.400}", "type": "color" },
-      "500": { "value": "{color.arylide-yellow.500}", "type": "color" },
-      "600": { "value": "{color.arylide-yellow.600}", "type": "color" },
-      "700": { "value": "{color.arylide-yellow.700}", "type": "color" },
-      "800": { "value": "{color.arylide-yellow.800}", "type": "color" },
-      "900": { "value": "{color.arylide-yellow.900}", "type": "color" }
+      "200": {
+        "value": "{color.arylide-yellow.200}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "300": {
+        "value": "{color.arylide-yellow.300}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "400": {
+        "value": "{color.arylide-yellow.400}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "500": {
+        "value": "{color.arylide-yellow.500}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "600": {
+        "value": "{color.arylide-yellow.600}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "700": {
+        "value": "{color.arylide-yellow.700}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "800": {
+        "value": "{color.arylide-yellow.800}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "900": {
+        "value": "{color.arylide-yellow.900}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      }
     },
 
     "secondary": {
-      "100": { "value": "{color.night.100}", "type": "color" },
-      "200": { "value": "{color.night.200}", "type": "color" },
-      "300": { "value": "{color.night.300}", "type": "color" },
-      "400": { "value": "{color.night.400}", "type": "color" },
-      "500": { "value": "{color.night.500}", "type": "color" },
-      "600": { "value": "{color.night.600}", "type": "color" },
-      "700": { "value": "{color.night.700}", "type": "color" },
-      "800": { "value": "{color.night.800}", "type": "color" },
-      "900": { "value": "{color.night.900}", "type": "color" }
+      "100": {
+        "value": "{color.night.100}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "200": {
+        "value": "{color.night.200}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "300": {
+        "value": "{color.night.300}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "400": {
+        "value": "{color.night.400}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "500": {
+        "value": "{color.night.500}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "600": {
+        "value": "{color.night.600}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "700": {
+        "value": "{color.night.700}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "800": {
+        "value": "{color.night.800}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      },
+      "900": {
+        "value": "{color.night.900}",
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
+      }
     },
 
     "accent": {
@@ -35,8 +104,8 @@
       },
       "200": {
         "value": "{color.battleship_gray.200}",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "300": {
         "value": "{color.battleship_gray.300}",
@@ -126,53 +195,53 @@
     "theme": {
       "100": {
         "value": "oklch(from sRGB var(--color-theme, {color.arylide-yellow.100}) calc(0.95) 0 90)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "200": {
         "value": "oklch(from sRGB var(--color-theme, {color.arylide-yellow.200}) calc(0.90) 0 90)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "300": {
         "value": "oklch(from sRGB var(--color-theme, {color.arylide-yellow.300}) calc(0.85) 0 90)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "400": {
         "value": "oklch(from sRGB var(--color-theme, {color.arylide-yellow.400}) calc(0.80) 0 90)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "500": {
         "value": "var(--color-theme, {color.arylide-yellow.500})",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "DEFAULT": {
         "value": "var(--color-theme, {color.arylide-yellow.500})",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "600": {
         "value": "color-mix(in srgb, var(--color-theme, {color.arylide-yellow.500}), white 60%)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "700": {
         "value": "color-mix(in srgb, var(--color-theme, {color.arylide-yellow.500}), white 70%)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "800": {
         "value": "color-mix(in srgb, var(--color-theme, {color.arylide-yellow.500}), white 80%)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       },
       "900": {
         "value": "color-mix(in srgb, var(--color-theme, {color.arylide-yellow.500}), white 90%)",
-        "attributes": { "tokenLevel": "semantic" },
-        "type": "color"
+        "type": "color",
+        "attributes": { "tokenLevel": "semantic" }
       }
     }
   }

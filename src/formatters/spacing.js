@@ -1,5 +1,5 @@
 export const spacingFluid = {
-  name: 'css/spacing-fluid',
+  name: "css/spacing-fluid",
   format: ({ dictionary }) => {
     const tokens = dictionary.allTokens;
     let css = `:root {\n`;
@@ -10,33 +10,40 @@ export const spacingFluid = {
     css += `  /* Spacing scale derived from primitives.spacing.* */\n`;
     // css += generateFluidSpacing(tokens);
 
-    css += '}\n';
+    css += "}\n";
 
     return css;
   },
 };
 
 export function generateFluidSpacing(tokens) {
-  return tokens
+  console.log("📟 - tokens → ", tokens);
+  let content = `${generateFluidSpaceUnit(tokens)}\n`;
+  console.log("📟 - content → ", content);
+
+  content += tokens
     .filter(
       (t) =>
-        t.attributes?.category === 'spacing' || t.attributes?.type === 'spacing'
+        t.attributes?.category === "spacing" ||
+        t.attributes?.type === "spacing",
     )
     .reduce((css, t) => {
       const item = t.attributes?.item || t.name; // xxs, xs, sm, md…
-      if (item === 'unit') return css; // we already handled unit
+      if (item === "unit") return css; // we already handled unit
       const multiplier = Number(t.value); // e.g. 0.75, 1, 1.5...
 
       css += `  --space-${item}: calc(var(--space-unit) * ${multiplier});\n`;
       return css;
-    }, '');
+    }, "");
+  return content;
 }
 
 export function generateThemeSpacing(tokens) {
   return (tokens = tokens
     .filter(
       (p) =>
-        p.attributes?.category === 'spacing' || p.attributes?.type === 'spacing'
+        p.attributes?.category === "spacing" ||
+        p.attributes?.type === "spacing",
     )
     .map((p) => {
       const name = p.attributes?.item || p.name;
@@ -65,23 +72,24 @@ export function calculateClamp(tokens) {
     tokens
       .filter(
         (t) =>
-          t.attributes?.category === 'spacing' && t.attributes?.type === 'fluid'
+          t.attributes?.category === "spacing" &&
+          t.attributes?.type === "fluid",
       )
-      .map((t) => [t.attributes.item, t.value])
+      .map((t) => [t.attributes.item, t.value]),
   );
 
   // ---- CONFIG: tweak these to taste ----
-  const minViewport = spacingTokenParams.min_viewport.replace('px', ''); // px
-  const maxViewport = spacingTokenParams.max_viewport.replace('px', ''); // px
-  const minRem = spacingTokenParams.min.replace('rem', ''); // base space at min viewport
-  const maxRem = spacingTokenParams.max.replace('rem', ''); // base space at max viewport
+  const minViewport = spacingTokenParams.min_viewport.replace("px", ""); // px
+  const maxViewport = spacingTokenParams.max_viewport.replace("px", ""); // px
+  const minRem = spacingTokenParams.min.replace("rem", ""); // base space at min viewport
+  const maxRem = spacingTokenParams.max.replace("rem", ""); // base space at max viewport
   // --------------------------------------
 
   const deltaRem = maxRem - minRem;
   const deltaViewport = maxViewport - minViewport;
 
   const clampExpr = `clamp(${minRem}rem, calc(${minRem}rem + ${deltaRem.toFixed(
-    4
+    4,
   )} * ((100vw - ${minViewport}px) / ${deltaViewport})), ${maxRem}rem)`;
 
   return clampExpr;

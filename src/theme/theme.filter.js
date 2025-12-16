@@ -8,6 +8,12 @@ const themeCategories = [
   'font',
   'text',
   'component',
+  'cube',
+];
+
+const excludeTypes = [
+  'utility',
+  // add more types to exclude from theme if needed
 ];
 /**
  * List of categories part of the generated private and public theme
@@ -17,7 +23,10 @@ const themeCategories = [
  * @returns {boolean}
  */
 export function isPartOfTheme(token) {
-  return themeCategories.includes(token.attributes?.category);
+  return themeCategories.includes(token.attributes?.category) &&
+    !excludeTypes.includes(token.attributes?.type)
+    ? true
+    : false;
 }
 
 export function filterThemeTokens(token) {

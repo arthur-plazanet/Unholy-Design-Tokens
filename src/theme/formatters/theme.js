@@ -1,38 +1,61 @@
-import { generateFluidSpaceUnit } from '../../formatters/spacing.js';
-import { usesReferences, getReferences } from 'style-dictionary/utils';
-import { generateSectionHeader } from '../../utils/template.js';
-
-const toKebab = (s) => s.replace(/_/g, '-').replace(/\./g, '-');
+import { generateFluidSpaceUnit } from "../../formatters/spacing.js";
+import { usesReferences, getReferences } from "style-dictionary/utils";
+import {
+  generateSectionHeader,
+  generateSubheader,
+} from "../../utils/template.js";
+import {
+  generateThemeCubeCSS,
+  generateThemeCubeCSSVariables,
+} from "../../cube-css/formatters/cube-css.js";
+import {
+  themeSubHeader,
+  generateThemeContent,
+  themeSectionHeader,
+} from "./helper.js";
+const toKebab = (s) => s.replace(/_/g, "-").replace(/\./g, "-");
 
 // Collect tokens into { publicName, value } entries
 function collectTokens(dictionary) {
-  return dictionary.allTokens.map((p) => {
-    // Build a public CSS var name like --text-md, --space-lg, etc.
-    // based on CTI (category/type/item) when available, else path.
-    const path = p.attributes?.item
-      ? [p.attributes.category, p.attributes.type, p.attributes.item]
-      : p.path;
+  const allTokens = dictionary.allTokens;
 
-    let name = path.category
-      ? `${path.category}-${path.type}-${path.item}`
-      : path.join('-');
-    // if (path.type === 'border') {
-    // }
-    return {
-      publicName: `--${toKebab(name)}`,
-      privateName: `--_${toKebab(name)}`,
-      value: p.value,
-      category: p.attributes?.category,
-    };
-  });
+  const cubeTokens = generateThemeCubeCSS(allTokens);
+
+  const rest = allTokens
+    .filter((p) => p.attributes?.category !== "cube")
+    .map((p) => {
+      // Build a public CSS var name like --text-md, --space-lg, etc.
+      // based on CTI (category/type/item) when available, else path.
+      // if (p.attributes?.category === "cube") {
+      //   console.log("📟 - p (cube) → ", p);
+      //   return generateThemeCubeCSSVariables(p);
+      // }
+      const path = p.attributes?.item
+        ? [p.attributes.category, p.attributes.type, p.attributes.item]
+        : p.path;
+
+      let name = path.category
+        ? `${path.category}-${path.type}-${path.item}`
+        : path.join("-");
+      // if (path.type === 'border') {
+      // }
+      return {
+        publicName: `--${toKebab(name)}`,
+        privateName: `--_${toKebab(name)}`,
+        value: p.value,
+        category: p.attributes?.category,
+      };
+    });
+
+  return [...rest, ...cubeTokens];
 }
 
 export const publicThemeTemplate = {
-  name: 'public-theme',
+  name: "public-theme",
   format: ({ dictionary, options }) => {
     const { outputReferences } = options || {};
 
-    const toks = collectTokens(dictionary); //collectTokens(dictionary);
+    const toks = collectTokens(dictionary);
     let header = `/**
  * Theme Overrides
  * List of CSS variables that can be used to override the default theme
@@ -40,20 +63,8 @@ export const publicThemeTemplate = {
  */`;
     let content = `${header}\n:root {`;
 
-    const usedTypes = new Set();
-    toks.forEach((t) => {
-      const category = t?.category;
-      if (category && !usedTypes.has(category)) {
-        const sectionHeader = generateSectionHeader(category);
-
-        usedTypes.add(category);
-        if (sectionHeader) {
-          content += `\n${sectionHeader}`;
-        }
-      }
-      content += `\n  ${t.publicName}: ${t.value};`;
-    });
-    content += '\n}\n';
+    content += generateThemeContent(toks);
+    content += "\n}\n";
     return content;
 
     // const body = toks.map((t) => `  /* ${t.publicName}: ${t.value}; */`).join('\n')
@@ -62,7 +73,7 @@ export const publicThemeTemplate = {
 };
 
 export const privateThemeTemplate = {
-  name: 'private-theme',
+  name: "private-theme",
   format: ({ dictionary }) => {
     const toks = collectTokens(dictionary);
     let header = `/**
@@ -72,22 +83,8 @@ export const privateThemeTemplate = {
  */`;
     let content = `${header}\n:root {`;
 
-    const usedTypes = new Set();
-    toks.forEach((t) => {
-      const category = t?.category;
-      if (category && !usedTypes.has(category)) {
-        const sectionHeader = generateSectionHeader(category);
-
-        usedTypes.add(category);
-        if (sectionHeader) {
-          content += `\n${sectionHeader}`;
-        }
-      }
-      content += `\n  ${t.privateName}: var(${t.publicName}, ${t.value});`;
-    });
-    // content += generateSectionHeader('Spacing');
-    // content += `  ${generateFluidSpaceUnit(dictionary.allTokens)}\n`;
-    content += '\n}\n';
+    content += generateThemeContent(toks, "private");
+    content += "\n}\n";
     return content;
     // const body = toks.map((t) => `  ${t.privateName}: var(${t.publicName}, ${t.value});`).join('\n')
     // return `${header}\n${body}\n}\n`
