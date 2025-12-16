@@ -4,6 +4,18 @@
  */
 
 :root {
+  --border-width-default: 2px;
+  --border-width-scale: 1.25;
+  --border-width-xsmall: calc(var(--border-width-default) / var(--border-width-scale));
+  --border-width-small: calc(var(--border-width-default) * var(--border-width-scale));
+  --border-width-medium: var(--border-width-default);
+  --border-width-large: calc(var(--border-width-default) * var(--border-width-scale) * var(--border-width-scale) * var(--border-width-scale));
+  --border-style: var(--border-style-default);
+  --border-radius-default: 0;
+  --border-radius-scale: 1.5;
+  --border-radius-light: calc(var(--border-radius-default) / var(--border-radius-scale));
+  --border-radius-medium: calc(var(--border-radius-default) * var(--border-radius-scale));
+  --border-radius-heavy: calc(var(--border-radius-default) * 2 * var(--border-radius-scale));
   --color-arylide-yellow-100: #f9f3e1;
   --color-arylide-yellow-200: #f4e8c3;
   --color-arylide-yellow-300: #eedca5;

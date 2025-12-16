@@ -9,16 +9,17 @@
 /* Border */
 /* -------------------------------------------------- */
   --_border-width-default: var(--border-width-default, 2px);
-  --_border-width-scale-value: var(--border-width-scale-value, 1.25);
-  --_border-width-xsmall: var(--border-width-xsmall, calc(2px / 1.25));
-  --_border-width-small: var(--border-width-small, calc(2px * 1.25));
-  --_border-width-medium: var(--border-width-medium, 2px);
-  --_border-width-large: var(--border-width-large, calc(2px * 1.25 * 1.25 * 1.25));
-  --_border-style: var(--border-style, solid);
+  --_border-width-scale: var(--border-width-scale, 1.25);
+  --_border-width-xsmall: var(--border-width-xsmall, calc(var(--border-width-default) / var(--border-width-scale)));
+  --_border-width-small: var(--border-width-small, calc(var(--border-width-default) * var(--border-width-scale)));
+  --_border-width-medium: var(--border-width-medium, var(--border-width-default));
+  --_border-width-large: var(--border-width-large, calc(var(--border-width-default) * var(--border-width-scale) * var(--border-width-scale) * var(--border-width-scale)));
+  --_border-style: var(--border-style, var(--border-style-default));
   --_border-radius-default: var(--border-radius-default, 0);
-  --_border-radius-light: var(--border-radius-light, calc(0 + 2px));
-  --_border-radius-medium: var(--border-radius-medium, calc(0 + 4px));
-  --_border-radius-heavy: var(--border-radius-heavy, calc(0 + 8px));
+  --_border-radius-scale: var(--border-radius-scale, 1.5);
+  --_border-radius-light: var(--border-radius-light, calc(var(--border-radius-default) / var(--border-radius-scale)));
+  --_border-radius-medium: var(--border-radius-medium, calc(var(--border-radius-default) * var(--border-radius-scale)));
+  --_border-radius-heavy: var(--border-radius-heavy, calc(var(--border-radius-default) * 2 * var(--border-radius-scale)));
 
 /* -------------------------------------------------- */
 /* Breakpoint */
@@ -28,6 +29,28 @@
   --_breakpoint-desktop: var(--breakpoint-desktop, 1024px);
   --_breakpoint-desktop-xl: var(--breakpoint-desktop-xl, 1280px);
   --_breakpoint-desktop-xxl: var(--breakpoint-desktop-xxl, 1820px);
+
+/* -------------------------------------------------- */
+/* Font */
+/* -------------------------------------------------- */
+  --_font-scale-0: var(--font-scale-0, clamp(1rem, 0.9021739130434783rem + 0.43478260869565216vw, 1.25rem));
+  --_font-scale-1: var(--font-scale-1, clamp(1.2rem, 1.0581521739130435rem + 0.6304347826086958vw, 1.5625rem));
+  --_font-scale-2: var(--font-scale-2, clamp(1.44rem, 1.239211956521739rem + 0.8923913043478261vw, 1.953125rem));
+  --_font-scale-3: var(--font-scale-3, clamp(1.7279999999999998rem, 1.4488410326086953rem + 1.2407065217391309vw, 2.44140625rem));
+  --_font-scale-4: var(--font-scale-4, clamp(2.0736rem, 1.6908425951086956rem + 1.7011440217391305vw, 3.0517578125rem));
+  --_font-scale-5: var(--font-scale-5, clamp(2.4883199999999994rem, 1.96930280910326rem + 2.306743070652175vw, 3.814697265625rem));
+  --_font-scale-6: var(--font-scale-6, clamp(2.9859839999999993rem, 2.2885279896399444rem + 3.0998044904891318vw, 4.76837158203125rem));
+  --_font-minFont: var(--font-minFont, 16);
+  --_font-maxFont: var(--font-maxFont, 20);
+  --_font-minViewport: var(--font-minViewport, 360);
+  --_font-maxViewport: var(--font-maxViewport, 1280);
+  --_font-scaleMin: var(--font-scaleMin, 1.2);
+  --_font-scaleMax: var(--font-scaleMax, 1.25);
+  --_font-steps: var(--font-steps, 0,1,2,3,4,5,6);
+  --_font-weight-light: var(--font-weight-light, 300);
+  --_font-weight-regular: var(--font-weight-regular, 400);
+  --_font-weight-medium: var(--font-weight-medium, 500);
+  --_font-weight-bold: var(--font-weight-bold, 700);
 
 /* -------------------------------------------------- */
 /* Shadow */
@@ -55,16 +78,23 @@
   --_spacing-fluid-max-viewport: var(--spacing-fluid-max-viewport, 1280px);
 
 /* -------------------------------------------------- */
+/* Text */
+/* -------------------------------------------------- */
+  --_text-body-size: var(--text-body-size, var(--font-scale-0));
+  --_text-body-lineHeight: var(--text-body-lineHeight, 1.5);
+  --_text-body-weight: var(--text-body-weight, var(--font-weight-regular));
+  --_text-caption-size: var(--text-caption-size, var(--font-scale--2));
+  --_text-caption-lineHeight: var(--text-caption-lineHeight, 1.4);
+  --_text-caption-weight: var(--text-caption-weight, var(--font-weight-regular));
+
+/* -------------------------------------------------- */
 /* Space */
 /* -------------------------------------------------- */
-  --_space-xxs: var(--space-xxs, var(--spacing-xxs));
-  --_space-xs: var(--space-xs, var(--spacing-xs));
-  --_space-sm: var(--space-sm, var(--spacing-sm));
-  --_space-md: var(--space-md, var(--spacing-md));
-  --_space-lg: var(--space-lg, var(--spacing-lg));
-  --_space-xl: var(--space-xl, var(--spacing-xl));
-  --_space-xxl: var(--space-xxl, var(--spacing-xxl));
-/* -------------------------------------------------- */
-/* Spacing */
-/* -------------------------------------------------- */
+  --_space-xxs: var(--space-xxs, calc(var(--space-unit) * var(--spacing-multiplier-xxs)));
+  --_space-xs: var(--space-xs, calc(var(--space-unit) * var(--spacing-multiplier-xs)));
+  --_space-sm: var(--space-sm, calc(var(--space-unit) * var(--spacing-multiplier-sm)));
+  --_space-md: var(--space-md, calc(var(--space-unit) * var(--spacing-multiplier-md)));
+  --_space-lg: var(--space-lg, calc(var(--space-unit) * var(--spacing-multiplier-lg)));
+  --_space-xl: var(--space-xl, calc(var(--space-unit) * var(--spacing-multiplier-xl)));
+  --_space-xxl: var(--space-xxl, calc(var(--space-unit) * var(--spacing-multiplier-xxl)));
 }

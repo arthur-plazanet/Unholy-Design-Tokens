@@ -1,10 +1,10 @@
 import StyleDictionary from 'style-dictionary';
 import { formats, transformGroups } from 'style-dictionary/enums';
 import {
-  filterThemeTokens,
   privateThemeTemplate,
   publicThemeTemplate,
-} from './theme/formatters/theme.js';
+  themeConfig,
+} from './theme/index.js';
 // import { cubeCssVariablesLayerFormatter } from './cube-css/formatters/cube-css.js';
 import { parseInitialTheme } from './parsers/initial-theme-parser.js';
 import { componentStatesTransform } from './transforms/component-states.js';
@@ -15,6 +15,7 @@ import { spacingFluid } from './formatters/spacing.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+// import themeConfig from './theme/theme.config.js';
 
 StyleDictionary.registerParser(parseInitialTheme);
 
@@ -70,7 +71,7 @@ const COMPONENT_OUT = path.join(
   '../src/tokens/component/typography.json'
 );
 
-// 1) register an action
+// // 1) register an action
 StyleDictionary.registerAction({
   name: 'generate-utopia-typography',
   do: () => {
@@ -80,8 +81,6 @@ StyleDictionary.registerAction({
 
     const source = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8')).primitives
       .typographyConfig;
-    console.log('📟 - source → ', source);
-    console.log('📟 - source → ', source);
 
     const config = {
       minFont: source.minFont?.value ?? 16,
@@ -163,7 +162,7 @@ StyleDictionary.registerAction({
 
     writeJSON(PRIMITIVES_OUT, primitives);
     writeJSON(SEMANTIC_OUT, semantic);
-    writeJSON(COMPONENT_OUT, component);
+    // writeJSON(COMPONENT_OUT, component);
   },
   undo: () => {
     // optional: clean files if you want
@@ -181,7 +180,7 @@ export default {
         // 'color/hue',
         // 'color/saturation',
         // 'color/lightness',
-        'attribute/cti', // pick up category/type/item
+        // 'attribute/cti', // pick up category/type/item
         // 'color/hsl',
         // 'custom/component-state',
       ],
@@ -194,7 +193,6 @@ export default {
           destination: 'tokens.css',
           format: 'css/variables',
           filter: (token) => {
-            console.log('📟 - token → ', token);
             return token.attributes.category === 'typography';
           },
           actions: ['generate-utopia-typography'], // <- here
@@ -211,22 +209,7 @@ export default {
             outputReferences: true,
           },
         },
-        {
-          destination: 'themes/private-theme.css',
-          format: 'private-theme',
-          filter: (token) => filterThemeTokens(token),
-          options: {
-            outputReferences: true,
-          },
-        },
-        {
-          destination: 'themes/public-theme.css',
-          format: 'public-theme',
-          filter: (token) => filterThemeTokens(token),
-          options: {
-            outputReferences: true,
-          },
-        },
+        ...themeConfig,
         {
           destination: 'spacing.css',
           format: 'css/spacing-fluid',
@@ -268,7 +251,13 @@ export default {
           destination: 'variants.css',
           format: formats.cssVariables,
           filter: (token) => {
-            const variants = ['variant', 'state', 'color', 'typography'];
+            const variants = [
+              'variant',
+              'state',
+              'color',
+              'typography',
+              'border',
+            ];
             return variants.includes(token.attributes?.category);
           },
           options: {
@@ -280,23 +269,23 @@ export default {
         },
         ...cube,
 
-        ...generateThemeFiles(['component']),
+        ...generateThemeFiles(['component', 'font']),
       ],
     },
-  },
-  // Type declarations
-  ts: {
-    transformGroup: 'js',
-    buildPath: 'build/types/',
-    files: [
-      {
-        destination: 'theme.d.ts',
-        format: 'typescript/types-declaration',
-      },
-      {
-        format: 'typescript/module-declarations',
-        destination: 'colors.d.ts',
-      },
-    ],
+    // Type declarations
+    ts: {
+      transformGroup: 'js',
+      buildPath: 'build/types/',
+      files: [
+        {
+          destination: 'theme.d.ts',
+          format: 'typescript/types-declaration',
+        },
+        {
+          format: 'typescript/module-declarations',
+          destination: 'colors.d.ts',
+        },
+      ],
+    },
   },
 };

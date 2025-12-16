@@ -1,39 +1,15 @@
-import { generateFluidSpacing } from '../../formatters/spacing.js';
+import { generateFluidSpaceUnit } from '../../formatters/spacing.js';
+import { usesReferences, getReferences } from 'style-dictionary/utils';
 
 const toKebab = (s) => s.replace(/_/g, '-').replace(/\./g, '-');
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-const themeCategories = [
-  'space',
-  'spacing',
-  'border',
-  'border',
-  'shadow',
-  'breakpoint',
-  'component',
-];
-/**
- * List of categories part of the generated private and public theme
- * See category: https://styledictionary.com/info/tokens/#category--type--item
- *
- * @param {*} token
- * @returns {boolean}
- */
-export function isPartOfTheme(token) {
-  return themeCategories.includes(token.attributes?.category);
-}
-
-export function filterThemeTokens(token) {
-  return isPartOfTheme(token);
-}
 
 // Collect tokens into { publicName, value } entries
 function collectTokens(dictionary) {
   return dictionary.allTokens.map((p) => {
-    console.log('📟 - allTokens → ', dictionary.allTokens.length);
-    console.log('📟 - p → ', p);
     // Build a public CSS var name like --text-md, --space-lg, etc.
     // based on CTI (category/type/item) when available, else path.
     const path = p.attributes?.item
@@ -43,7 +19,11 @@ function collectTokens(dictionary) {
     let name = path.category
       ? `${path.category}-${path.type}-${path.item}`
       : path.join('-');
-
+    // if (path.type === 'border') {
+    console.group(`border theme`);
+    console.log(p);
+    console.groupEnd();
+    // }
     return {
       publicName: `--${toKebab(name)}`,
       privateName: `--_${toKebab(name)}`,
@@ -65,8 +45,11 @@ function generateSectionHeader(type) {
 
 export const publicThemeTemplate = {
   name: 'public-theme',
-  format: ({ dictionary }) => {
-    const toks = collectTokens(dictionary);
+  format: ({ dictionary, options }) => {
+    const { outputReferences } = options || {};
+    console.log('📟 - outputReferences → ', outputReferences);
+
+    const toks = collectTokens(dictionary); //collectTokens(dictionary);
     let header = `/**
  * Theme Overrides
  * List of CSS variables that can be used to override the default theme
@@ -76,11 +59,13 @@ export const publicThemeTemplate = {
 
     const usedTypes = new Set();
     toks.forEach((t) => {
-      console.log('📟 - t → ', t.category);
+      console.log('t:', t.original);
+      console.log('usesReferences:', usesReferences(t));
+
       const category = t?.category;
-      console.log('📟 - category → ', category);
       if (category && !usedTypes.has(category)) {
         const sectionHeader = generateSectionHeader(category);
+
         usedTypes.add(category);
         if (sectionHeader) {
           content += `\n${sectionHeader}`;
@@ -110,7 +95,6 @@ export const privateThemeTemplate = {
     const usedTypes = new Set();
     toks.forEach((t) => {
       const category = t?.category;
-      console.log('📟 - category → ', category);
       if (category && !usedTypes.has(category)) {
         const sectionHeader = generateSectionHeader(category);
 
@@ -121,8 +105,8 @@ export const privateThemeTemplate = {
       }
       content += `\n  ${t.privateName}: var(${t.publicName}, ${t.value});`;
     });
-    content += generateSectionHeader('Spacing');
-    content += generateFluidSpacing(toks);
+    // content += generateSectionHeader('Spacing');
+    // content += `  ${generateFluidSpaceUnit(dictionary.allTokens)}\n`;
     content += '\n}\n';
     return content;
     // const body = toks.map((t) => `  ${t.privateName}: var(${t.publicName}, ${t.value});`).join('\n')

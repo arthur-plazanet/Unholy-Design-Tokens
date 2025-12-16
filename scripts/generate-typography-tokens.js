@@ -1,6 +1,6 @@
 // scripts/generate-typography-tokens.js
 // ---------------------------------------------------------
-// Generate ALL typography tokens from primitives/typography.json
+// Generate ALL typography tokens from primitives/font.json
 // ---------------------------------------------------------
 
 import fs from 'fs';
@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 const INPUT_FILE = path.join(
   __dirname,
-  '../src/tokens/1 - primitives/typography.json'
+  '../src/tokens/1 - primitives/font.json'
 );
 const PRIMITIVES_OUT = path.join(
   __dirname,
@@ -21,28 +21,22 @@ const PRIMITIVES_OUT = path.join(
 );
 const SEMANTIC_OUT = path.join(
   __dirname,
-  '../src/tokens/2 - semantic/typography.json'
+  '../src/tokens/2 - semantic/font.json'
 );
-const COMPONENT_OUT = path.join(
-  __dirname,
-  '../src/tokens/component/typography.json'
-);
+const COMPONENT_OUT = path.join(__dirname, '../src/tokens/component/font.json');
 
 // -----------------------------------
 // Load primitive inputs for typography
 // -----------------------------------
 
 if (!fs.existsSync(INPUT_FILE)) {
-  console.error('❌ Missing: primitives/typography.json');
   process.exit(1);
 }
 
 let configToken;
 try {
-  configToken = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8')).typography;
+  configToken = JSON.parse(fs.readFileSync(INPUT_FILE, 'utf8')).font;
 } catch (e) {
-  console.error('❌ Invalid primitives/typography.json:');
-  console.error(e);
   process.exit(1);
 }
 
@@ -60,7 +54,6 @@ const config = {
 // Build Utopia scale
 // -----------------------------------
 
-console.log('🔮 Generating Utopia typography scale...');
 const scale = generateUtopiaScale(config);
 
 // -----------------------------------
@@ -139,13 +132,8 @@ function writeJSON(file, data) {
   const dir = path.dirname(file);
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(file, JSON.stringify(data, null, 2));
-  console.log('✔ Saved:', file);
 }
 
 writeJSON(PRIMITIVES_OUT, primitives);
-writeJSON(SEMANTIC_OUT, semantic);
+// writeJSON(SEMANTIC_OUT, semantic);
 // writeJSON(COMPONENT_OUT, component);
-
-console.log(
-  '\n✨ Typography tokens regenerated from primitives/typography.json\n'
-);

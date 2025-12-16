@@ -4,7 +4,7 @@
       "default": {
         "value": "2px"
       },
-      "scale-value": {
+      "scale": {
         "value": "1.25"
       }
     },
@@ -16,6 +16,9 @@
     "radius": {
       "default": {
         "value": 0
+      },
+      "scale": {
+        "value": 1.5
       }
     }
   }
