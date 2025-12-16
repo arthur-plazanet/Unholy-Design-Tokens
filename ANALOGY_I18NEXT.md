@@ -19,7 +19,7 @@ So you introduce **i18next**.
 
 ---
 
-## 2. Layer 1 – Translation resources (raw data)
+## Layer 1 – Translation resources (raw data)
 
 You define your resources:
 
@@ -59,7 +59,7 @@ Think of it as **your translation “database”**, nothing more.
 
 ---
 
-## 3. Layer 2 – Meaningful keys & namespaces
+## Layer 2 – Meaningful keys & namespaces
 
 Then you start organizing things:
 
@@ -103,7 +103,7 @@ You’ve created a **semantic layer** of _meaningful keys_ above raw strings.
 
 ---
 
-## 4. Layer 3 – Component usage / intent
+## Layer 3 – Component usage / intent
 
 Now imagine an `Alert`:
 
@@ -138,7 +138,7 @@ which resolves, via resources, to the actual text.
 
 ---
 
-## 🧩 Put it all together (still 100% i18next)
+## 🧩 Put it all together
 
 We essentially have:
 
@@ -157,27 +157,4 @@ No one doing UI work should touch the raw strings directly anymore.
 
 They work with **keys and intent**.
 
----
-
-## 🔄 Now, the tiny bridge to tokens (just one line)
-
-If you want a punchy sentence for your tutorial:
-
-> If you know i18next, design tokens are the same idea but for visuals:
->
 > resources = raw values, keys = semantic meaning, `t()` calls = component intent.
-
-And then you go right back to code and visuals.
-
----
-
-If you want, I can write a **full tutorial section** like:
-
-> “If you’ve ever used i18next, you already understand design tokens”
-
-with side-by-side:
-
-- left: i18next example
-- right: token example
-
-…but keeping it super short and punchy for docs.
