@@ -47,14 +47,14 @@ Sometimes it includes "context" or not.
 
 They are different answers which cause mismatches in understanding:
 
-- From a designer's perspective, semantic tokens are often colors with meaning (e.g., "error", "warning"). Some teams use:
+### From a designer's perspective, semantic tokens are often colors with meaning (e.g., "error", "warning"). Some teams use:
 
 ```css
 --color-primary-700: var(--color-blue-700);
 --color-error: var(--color-red-600);
 ```
 
-- From a developer's perspective, semantic tokens are colors that adapt based on context (e.g "background", "text"). Some teams use:
+### From a developer's perspective, semantic tokens are colors that adapt based on context (e.g "background", "text"). Some teams use:
 
 ```css
 --color-bg-primary-hover: var(--color-blue-700);
