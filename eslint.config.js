@@ -1,20 +1,17 @@
 import js from "@eslint/js";
 import globals from "globals";
-import tseslint from "typescript-eslint";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
-import eslintConfigPrettier from "eslint-config-prettier";
 
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+    files: ["**/*.{js,mjs,cjs}"],
     plugins: { js },
-    extends: ["js/recommended", "prettier", eslintConfigPrettier],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    extends: ["js/recommended"],
+    languageOptions: { globals: globals.browser },
   },
-  tseslint.configs.recommended,
   {
     files: ["**/*.json"],
     plugins: { json },
